@@ -1,6 +1,7 @@
 module com.kasir {
     requires javafx.controls;
     requires javafx.fxml;
+    requires transitive javafx.graphics;
     requires transitive java.sql;
     requires atlantafx.base;
     requires transitive org.apache.pdfbox;
