@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kasir.ProductController">
+   <children>
+      <GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="1280.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="-Infinity" prefHeight="740.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1280.0" style="-fx-border-color: #000; -fx-border-width: 0 0 0.5 0;">
+               <children>
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="200.0" text="Daifuku Satrio Mochi">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </Label>
+                  <Line endY="36.0" layoutX="200.0" layoutY="8.0" strokeLineCap="ROUND" strokeWidth="0.5" AnchorPane.bottomAnchor="11.5" AnchorPane.topAnchor="11.5" />
+                  <Label layoutX="212.0" layoutY="1.0" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#switchToCashierScene" prefHeight="60.0" text="Cashier" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets left="16.0" right="16.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label layoutX="303.0" layoutY="1.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" text="Produk" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets left="16.0" right="16.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label layoutX="399.0" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#switchToHistoryScene" prefHeight="60.0" text="History" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets left="16.0" right="16.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <AnchorPane layoutX="764.0" layoutY="-70.0" prefHeight="59.0" prefWidth="180.0" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="namaKasirLabel" contentDisplay="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" text="Codsworth" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="60.0">
+                           <padding>
+                              <Insets left="16.0" right="16.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="jabatanKasirLabel" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" text="Cashier 1" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="30.0">
+                           <padding>
+                              <Insets left="16.0" right="16.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="6.0">
+                           <image>
+                              <Image url="@robot.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1280.0" GridPane.rowIndex="1">
+               <children>
+                  <GridPane minHeight="-Infinity" prefHeight="740.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="980.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="300.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="-Infinity" prefHeight="740.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="980.0" style="-fx-border-color: #000; -fx-border-width: 0 0.5 0 0;">
+                           <children>
+                              <GridPane minWidth="-Infinity" prefHeight="740.0" prefWidth="980.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="980.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="60.0" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="684.2666473388672" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="980.0">
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                       <children>
+                                          <Label layoutX="40.0" prefHeight="44.0" prefWidth="271.0" text="Produk" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane minHeight="0.0" minWidth="-Infinity" prefHeight="666.0" prefWidth="980.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <TableView fx:id="tableView" focusTraversable="false" layoutX="40.0" layoutY="21.0" minWidth="-Infinity" onMouseClicked="#onTableViewClick" prefHeight="707.0" prefWidth="940.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                                             <columns>
+                                                <TableColumn fx:id="idColumn" prefWidth="100.80000686645508" text="Kode" />
+                                                <TableColumn fx:id="namaColumn" prefWidth="285.60001373291016" text="Nama" />
+                                                <TableColumn fx:id="kategoriColumn" prefWidth="207.46664428710938" text="Kategori" />
+                                                <TableColumn fx:id="hargaColumn" prefWidth="178.1334228515625" text="Harga" />
+                                                <TableColumn fx:id="stokColumn" prefWidth="168.53326416015625" text="Stok" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                           <children>
+                              <GridPane layoutX="33.0" layoutY="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="430.0" minHeight="10.0" prefHeight="430.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="401.33331909179685" minHeight="10.0" prefHeight="304.80003051757814" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <AnchorPane prefHeight="434.0" prefWidth="300.0" style="-fx-border-color: #000; -fx-border-width: 0 0 0.5 0;">
+                                       <children>
+                                          <Label layoutX="127.0" layoutY="108.0" text="Nama" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="20.0" />
+                                          <TextField fx:id="namaField" layoutX="20.0" layoutY="41.8" prefHeight="36.0" prefWidth="210.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
+                                          <Label layoutX="35.0" layoutY="30.0" text="Kategori" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0" />
+                                          <TextField fx:id="kategoriField" layoutX="30.0" layoutY="60.0" prefHeight="36.0" prefWidth="210.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="130.0" />
+                                          <Label layoutX="30.0" layoutY="110.0" text="Harga" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="180.0" />
+                                          <TextField fx:id="hargaField" layoutX="30.0" layoutY="140.0" prefHeight="36.0" prefWidth="210.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="210.0" />
+                                          <Button fx:id="tambahProdukButton" layoutX="124.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#tambahProduk" text="Tambah Produk" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="270.0" />
+                                          <Button fx:id="editProdukButton" layoutX="30.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#editProduk" text="Edit Produk" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="320.0" />
+                                          <Button fx:id="hapusProdukButton" layoutX="30.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#hapusProduk" text="Hapus Produk" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="370.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label layoutX="142.0" layoutY="70.0" text="Stok" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                                          <TextField fx:id="stokField" layoutX="51.0" layoutY="111.0" prefHeight="36.0" prefWidth="210.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
+                                          <Button fx:id="tambahStokButton" layoutX="60.0" layoutY="121.0" mnemonicParsing="false" onMouseClicked="#tambahStok" text="Tambah Stok" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="110.0" />
+                                          <Button fx:id="kurangiStokButton" layoutX="55.0" layoutY="183.0" mnemonicParsing="false" onMouseClicked="#kurangiStok" text="Kurangi Stok" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="160.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

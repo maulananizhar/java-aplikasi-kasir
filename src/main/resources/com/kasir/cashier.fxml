@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kasir.CashierController">
+   <children>
+      <GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="1280.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="-Infinity" prefHeight="740.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1280.0" style="-fx-border-color: #000; -fx-border-width: 0 0 0.5 0;">
+               <children>
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="200.0" text="Daifuku Satrio Mochi">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </Label>
+                  <Line endY="36.0" layoutX="200.0" layoutY="8.0" strokeLineCap="ROUND" strokeWidth="0.5" AnchorPane.bottomAnchor="11.5" AnchorPane.topAnchor="11.5" />
+                  <Label layoutX="212.0" layoutY="1.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" text="Cashier" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets left="16.0" right="16.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label layoutX="303.0" layoutY="1.0" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#switchToProductScene" prefHeight="60.0" text="Produk" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets left="16.0" right="16.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label layoutX="399.0" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#switchToHistoryScene" prefHeight="60.0" text="History" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets left="16.0" right="16.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <AnchorPane layoutX="764.0" layoutY="-70.0" prefHeight="59.0" prefWidth="180.0" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="namaKasirLabel" contentDisplay="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" text="Codsworth" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="60.0">
+                           <padding>
+                              <Insets left="16.0" right="16.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="jabatanKasirLabel" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" text="Cashier 1" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="30.0">
+                           <padding>
+                              <Insets left="16.0" right="16.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="6.0">
+                           <image>
+                              <Image url="@robot.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1280.0" GridPane.rowIndex="1">
+               <children>
+                  <GridPane minHeight="-Infinity" prefHeight="740.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="980.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="300.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="-Infinity" prefHeight="740.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="980.0" style="-fx-border-color: #000; -fx-border-width: 0 0.5 0 0;">
+                           <children>
+                              <GridPane minWidth="-Infinity" prefHeight="740.0" prefWidth="980.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="980.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="60.0" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="600.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="980.0">
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                       <children>
+                                          <Label layoutX="60.0" prefHeight="60.0" prefWidth="77.0" text="Cashier" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="transaksiBaruButton" mnemonicParsing="false" onMouseClicked="#createTransaction" text="Transaksi Baru" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
+                                          <Label layoutX="220.0" layoutY="10.0" prefHeight="60.0" prefWidth="106.0" text="UUID Transaksi:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="transaksiIdLabel" layoutX="330.4" layoutY="10.0" prefHeight="60.0" prefWidth="310.0" text="d1486b4c-4ecb-11f0-81b6-1a8a3d16facd" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="270.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="-Infinity" prefHeight="666.0" prefWidth="980.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <TableView fx:id="keranjangView" focusTraversable="false" layoutX="40.0" layoutY="21.0" minWidth="-Infinity" onMouseClicked="#onKeranjangSelected" prefHeight="707.0" prefWidth="940.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn fx:id="idColumn" prefWidth="100.80000686645508" text="Kode" />
+                                              <TableColumn fx:id="namaColumn" prefWidth="285.60001373291016" text="Nama" />
+                                                <TableColumn fx:id="hargaColumn" prefWidth="207.46664428710938" text="Harga" />
+                                                <TableColumn fx:id="kuantitasColumn" prefWidth="178.1334228515625" text="Kuantitas" />
+                                                <TableColumn fx:id="jumlahColumn" prefWidth="168.53326416015625" text="Jumlah" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="300.0" GridPane.columnIndex="1">
+                           <children>
+                              <GridPane layoutX="25.0" layoutY="154.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="360.0" prefHeight="360.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="130.0" minHeight="130.0" prefHeight="130.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="160.0" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <AnchorPane prefHeight="465.0" prefWidth="300.0" style="-fx-border-color: #000; -fx-border-width: 0 0 0.5 0;">
+                                       <children>
+                                          <Label layoutX="47.0" layoutY="48.0" text="Cari" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                                          <Button fx:id="cariButton" contentDisplay="CENTER" layoutX="88.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#searchProducts" prefHeight="36.0" prefWidth="36.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
+                                             <graphic>
+                                                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@search.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <TextField fx:id="cariField" layoutX="97.0" layoutY="159.0" onInputMethodTextChanged="#searchProducts" onKeyReleased="#searchProducts" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="50.0" />
+                                          <TableView fx:id="produkView" layoutX="50.0" layoutY="60.0" onMouseClicked="#onProductSelected" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0">
+                                            <columns>
+                                              <TableColumn fx:id="namaProdukColumn" prefWidth="161.59991455078125" text="Nama" />
+                                              <TableColumn fx:id="stokProdukColumn" prefWidth="97.60009765625" text="Stok" />
+                                            </columns>
+                                          </TableView>
+                                          <Button fx:id="tambahKeranjangButton" layoutX="124.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#tambahKeranjang" text="Tambah ke keranjang" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000; -fx-border-width: 0 0 0.5 0;" GridPane.rowIndex="1">
+                                       <children>
+                                          <Button fx:id="hapusProdukButton" layoutX="112.0" layoutY="43.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#hapusProdukKeranjang" prefHeight="36.0" text="Hapus Produk" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                                          <Button fx:id="tambahKuantitasButton" layoutX="20.0" layoutY="80.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#tambahKuantitas" prefHeight="36.0" text="Tambah" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="70.0" />
+                                          <Button fx:id="kurangKuantitasButton" layoutX="30.0" layoutY="80.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#kurangKuantitas" prefHeight="36.0" text="Kurang" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label layoutX="53.0" layoutY="28.0" text="Total" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                                          <Label fx:id="totalText" alignment="CENTER" layoutX="30.0" layoutY="30.0" text="Rp200.000" textAlignment="CENTER" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="cetakStrukButton" layoutX="113.0" layoutY="110.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#konfirmasiPembayaran" prefHeight="36.0" text="Konfirmasi Pembayaran" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
