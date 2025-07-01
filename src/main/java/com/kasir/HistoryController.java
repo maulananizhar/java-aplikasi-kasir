@@ -108,7 +108,14 @@ public class HistoryController {
     statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     // Load history data
-    loadHistoryData();
+    new Thread(() -> {
+      try {
+        Thread.sleep(100);
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+      }
+      javafx.application.Platform.runLater(() -> loadHistoryData());
+    }).start();
 
     historyTableView.getSortOrder().add(tanggalColumn);
     tanggalColumn.setSortType(TableColumn.SortType.DESCENDING);
@@ -137,7 +144,8 @@ public class HistoryController {
                 "k.nama AS nama_kasir, " +
                 "t.status " +
                 "FROM transaksi t " +
-                "JOIN kasir k ON t.kasir = k.uuid")) {
+                "JOIN kasir k ON t.kasir = k.uuid " +
+                "WHERE t.kasir = '" + kasir.getUuid() + "' ")) {
 
       while (rs.next()) {
         historyData.add(new Transaksi(
@@ -220,10 +228,23 @@ public class HistoryController {
       System.out.println("Tanggal awal dan akhir harus diisi.");
       return;
     }
-    CetakLaporan.cetakLaporan(tanggalAwal.getValue(), tanggalAkhir.getValue());
+    CetakLaporan.cetakLaporan(tanggalAwal.getValue(), tanggalAkhir.getValue(), kasir);
     System.out.println(
         "Cetak laporan dari " + formatTanggalString(tanggalAwal.getValue()) + " sampai "
             + formatTanggalString(tanggalAkhir.getValue()));
+  }
+
+  @FXML
+  private void logout() throws IOException {
+    // Kembali ke halaman login
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("login.fxml"));
+    Parent root = loader.load();
+
+    Scene scene = historyTableView.getScene();
+    scene.setRoot(root);
+
+    Stage stage = (Stage) scene.getWindow();
+    stage.sizeToScene();
   }
 
   private static String formatTanggalString(LocalDate tanggalStr) {
