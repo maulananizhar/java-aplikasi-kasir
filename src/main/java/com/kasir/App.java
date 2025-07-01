@@ -16,20 +16,20 @@ import atlantafx.base.theme.Dracula;
  */
 public class App extends Application {
 
-    private static Scene scene;
+    public static Scene rootScene;
 
     @Override
     public void start(Stage stage) throws IOException {
         App.setUserAgentStylesheet(new Dracula().getUserAgentStylesheet());
-        scene = new Scene(loadFXML("login"));
-        stage.setScene(scene);
+        rootScene = new Scene(loadFXML("login"));
+        stage.setScene(rootScene);
         stage.setTitle("Aplikasi Kasir");
         stage.getIcons().add(new Image("file:src/main/resources/com/kasir/robot.png"));
         stage.show();
     }
 
     public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+        rootScene.setRoot(loadFXML(fxml));
     }
 
     private static Parent loadFXML(String fxml) throws IOException {

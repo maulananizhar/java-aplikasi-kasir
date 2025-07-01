@@ -4,7 +4,12 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Locale;
 
+import com.kasir.libs.CetakLaporan;
 import com.kasir.libs.CetakStruk;
 import com.kasir.model.Kasir;
 import com.kasir.model.Transaksi;
@@ -15,10 +20,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class HistoryController {
 
@@ -42,14 +50,22 @@ public class HistoryController {
   private TableColumn<Transaksi, String> statusColumn;
 
   @FXML
+  private DatePicker tanggalAwal;
+  @FXML
+  private DatePicker tanggalAkhir;
+
+  @FXML
   private void switchToCashierScene() throws IOException {
     FXMLLoader loader = new FXMLLoader(App.class.getResource("cashier.fxml"));
     Parent root = loader.load();
     CashierController controller = loader.getController();
     controller.setKasir(kasir);
-    historyTableView.getScene().getWindow().setWidth(1280);
-    historyTableView.getScene().getWindow().setHeight(800);
-    historyTableView.getScene().setRoot(root);
+
+    Scene scene = historyTableView.getScene();
+    scene.setRoot(root);
+
+    Stage stage = (Stage) scene.getWindow();
+    stage.sizeToScene();
   }
 
   @FXML
@@ -58,9 +74,12 @@ public class HistoryController {
     Parent root = loader.load();
     ProductController controller = loader.getController();
     controller.setKasir(kasir);
-    historyTableView.getScene().getWindow().setWidth(1280);
-    historyTableView.getScene().getWindow().setHeight(800);
-    historyTableView.getScene().setRoot(root);
+
+    Scene scene = historyTableView.getScene();
+    scene.setRoot(root);
+
+    Stage stage = (Stage) scene.getWindow();
+    stage.sizeToScene();
   }
 
   public void setKasir(Kasir kasir) {
@@ -192,9 +211,31 @@ public class HistoryController {
       System.out.println("Tidak ada transaksi yang dipilih.");
       return;
     }
+    CetakStruk.cetakStruk(selectedTransaksi, kasir);
+  }
 
-    CetakStruk.cetakStruk(selectedTransaksi);
+  @FXML
+  private void cetakLaporan() throws IOException {
+    if (tanggalAwal.getValue() == null || tanggalAkhir.getValue() == null) {
+      System.out.println("Tanggal awal dan akhir harus diisi.");
+      return;
+    }
+    CetakLaporan.cetakLaporan(tanggalAwal.getValue(), tanggalAkhir.getValue());
+    System.out.println(
+        "Cetak laporan dari " + formatTanggalString(tanggalAwal.getValue()) + " sampai "
+            + formatTanggalString(tanggalAkhir.getValue()));
+  }
 
+  private static String formatTanggalString(LocalDate tanggalStr) {
+    try {
+      SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+      SimpleDateFormat outputFormat = new SimpleDateFormat("EEEE, dd MMMM yyyy", Locale.forLanguageTag("id-ID"));
+      outputFormat.setTimeZone(java.util.TimeZone.getTimeZone("GMT+14"));
+      java.util.Date date = inputFormat.parse(tanggalStr.toString());
+      return outputFormat.format(date);
+    } catch (Exception e) {
+      return tanggalStr.toString();
+    }
   }
 
 }

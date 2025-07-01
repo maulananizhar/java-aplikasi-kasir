@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -28,7 +29,7 @@
          <children>
             <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1280.0" style="-fx-border-color: #000; -fx-border-width: 0 0 0.5 0;">
                <children>
-                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="200.0" text="Daifuku Satrio Mochi">
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="200.0" text="Daifuku Tree Mochi">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -161,8 +162,8 @@
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                  <RowConstraints maxHeight="430.0" minHeight="10.0" prefHeight="430.0" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="401.33331909179685" minHeight="10.0" prefHeight="304.80003051757814" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
                                     <AnchorPane prefHeight="434.0" prefWidth="300.0" style="-fx-border-color: #000; -fx-border-width: 0 0 0.5 0;">
@@ -171,7 +172,14 @@
                                           <Button layoutX="30.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#printStruk" text="Struk Transaksi" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label layoutX="63.0" layoutY="39.0" text="Tanggal Awal" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                                          <DatePicker fx:id="tanggalAwal" layoutX="31.0" layoutY="91.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
+                                          <Label layoutX="20.0" layoutY="102.0" text="Tanggal Akhir" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0" />
+                                          <DatePicker fx:id="tanggalAkhir" layoutX="30.0" layoutY="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="130.0" />
+                                          <Button layoutX="50.0" layoutY="217.0" mnemonicParsing="false" onMouseClicked="#cetakLaporan" text="Cetak Laporan Penjualan" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="200.0" />
+                                       </children></AnchorPane>
                                  </children>
                               </GridPane>
                            </children>

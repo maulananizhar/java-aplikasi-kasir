@@ -5,6 +5,7 @@ module com.kasir {
     requires transitive java.sql;
     requires atlantafx.base;
     requires transitive org.apache.pdfbox;
+    requires java.desktop;
 
     opens com.kasir.services to javafx.base;
     opens com.kasir to javafx.fxml;

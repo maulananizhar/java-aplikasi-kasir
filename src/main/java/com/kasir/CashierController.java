@@ -15,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -81,9 +82,12 @@ public class CashierController {
     Parent root = loader.load();
     ProductController controller = loader.getController();
     controller.setKasir(kasir);
-    produkView.getScene().getWindow().setWidth(1280);
-    produkView.getScene().getWindow().setHeight(800);
-    produkView.getScene().setRoot(root);
+
+    Scene scene = produkView.getScene();
+    scene.setRoot(root);
+
+    Stage stage = (Stage) scene.getWindow();
+    stage.sizeToScene();
   }
 
   @FXML
@@ -92,9 +96,12 @@ public class CashierController {
     Parent root = loader.load();
     HistoryController controller = loader.getController();
     controller.setKasir(kasir);
-    produkView.getScene().getWindow().setWidth(1280);
-    produkView.getScene().getWindow().setHeight(800);
-    produkView.getScene().setRoot(root);
+
+    Scene scene = produkView.getScene();
+    scene.setRoot(root);
+
+    Stage stage = (Stage) scene.getWindow();
+    stage.sizeToScene();
   }
 
   public void setKasir(Kasir kasir) {
@@ -410,7 +417,7 @@ public class CashierController {
       // Buat transaksi baru dengan UUID
       String uuid = java.util.UUID.randomUUID().toString();
       String query = "INSERT INTO transaksi (uuid, tanggal, total_harga, kasir) VALUES ('"
-          + uuid + "', NOW(), 0, '0438f356-4eb0-11f0-81b6-1a8a3d16facd')";
+          + uuid + "', NOW(), 0, '" + kasir.getUuid() + "')";
       stmt.executeUpdate(query);
 
       // Set transaksi ID baru
@@ -425,13 +432,15 @@ public class CashierController {
   @FXML
   private void konfirmasiPembayaran() {
     try {
-      javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/com/kasir/konfirmasi.fxml"));
-      javafx.scene.Parent root = loader.load();
+      FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/com/kasir/konfirmasi.fxml"));
+      Parent root = loader.load();
+
       Stage dialog = new Stage();
       dialog.setTitle("Konfirmasi Pembayaran");
       dialog.setResizable(false);
       dialog.setScene(new javafx.scene.Scene(root));
       KonfirmasiController controller = loader.getController();
+      controller.setKasir(kasir);
       controller.setTotalHarga(totalText.getText());
       controller.setUuid(transaksiId);
       dialog.show();

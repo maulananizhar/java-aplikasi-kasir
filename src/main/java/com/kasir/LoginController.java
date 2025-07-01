@@ -10,8 +10,10 @@ import com.kasir.services.DBConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class LoginController {
 
@@ -50,10 +52,12 @@ public class LoginController {
         Parent root = loader.load();
         CashierController controller = loader.getController();
         controller.setKasir(kasir);
-        loginButton.getScene().getWindow().setWidth(1280);
-        loginButton.getScene().getWindow().setHeight(800);
-        loginButton.getScene().setRoot(root);
 
+        Scene scene = loginButton.getScene();
+        scene.setRoot(root);
+
+        Stage stage = (Stage) scene.getWindow();
+        stage.sizeToScene();
       } else {
         System.out.println("Invalid username or password");
       }

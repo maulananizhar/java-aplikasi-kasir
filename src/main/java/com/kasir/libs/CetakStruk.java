@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
+import java.awt.Desktop;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -17,6 +18,7 @@ import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 
+import com.kasir.model.Kasir;
 import com.kasir.model.Keranjang;
 import com.kasir.model.Transaksi;
 import com.kasir.services.DBConnection;
@@ -24,12 +26,12 @@ import com.kasir.services.DBConnection;
 import javafx.scene.paint.Color;
 
 public class CetakStruk {
-  public static void cetakStruk(Transaksi selectedTransaksi) throws IOException {
+  public static void cetakStruk(Transaksi selectedTransaksi, Kasir kasir) throws IOException {
     PDDocument document = new PDDocument();
     PDPage page = new PDPage(PDRectangle.A6);
     document.addPage(page);
 
-    String namaKasir = "Codsworth";
+    String namaKasir = kasir.getNama();
 
     int pageWidth = (int) page.getTrimBox().getWidth();
     int pageHeight = (int) page.getTrimBox().getHeight();
@@ -43,7 +45,7 @@ public class CetakStruk {
     // PDType1Font(Standard14Fonts.FontName.HELVETICA_OBLIQUE);
 
     text.addSingleLineText(page, "Struk Belanja", 10, pageHeight - 10, font, 10, Color.BLACK, "center");
-    text.addSingleLineText(page, "Daifuku Satrio Mochi", 10, pageHeight - 22, font, 10, Color.BLACK, "center");
+    text.addSingleLineText(page, "Daifuku Tree Mochi", 10, pageHeight - 22, font, 10, Color.BLACK, "center");
 
     text.addSingleLineText(page, "Nama Kasir: " + namaKasir, 10, pageHeight - 60, font, 6, Color.BLACK, "left");
     text.addSingleLineText(page, "UUID Transaksi: " + selectedTransaksi.getUuid(), 10, pageHeight - 68, font,
@@ -72,7 +74,7 @@ public class CetakStruk {
 
     table.addRow("Nama", tableHeadColor);
     table.addRow("Harga", tableHeadColor);
-    table.addRow("Kuantiatas", tableHeadColor);
+    table.addRow("Kuantitas", tableHeadColor);
     table.addRow("Jumlah", tableHeadColor);
 
     List<Keranjang> keranjang = new java.util.ArrayList<>();
@@ -124,8 +126,12 @@ public class CetakStruk {
     document.save(
         "C:\\Users\\Nizhar Maulana\\OneDrive - Universitas Negeri Jakarta (UNJ)\\College\\122 - Pemrograman Berorientasi Objek Lanjut\\kasir\\target\\pdf\\"
             + selectedTransaksi.getUuid() + ".pdf");
-
     document.close();
+    Desktop.getDesktop().browse(
+        java.nio.file.Paths.get(
+            "C:\\Users\\Nizhar Maulana\\OneDrive - Universitas Negeri Jakarta (UNJ)\\College\\122 - Pemrograman Berorientasi Objek Lanjut\\kasir\\target\\pdf\\"
+                + selectedTransaksi.getUuid() + ".pdf")
+            .toUri());
   }
 
   private static String formatTanggal(Timestamp tanggal) {

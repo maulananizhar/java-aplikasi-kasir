@@ -15,12 +15,14 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class ProductController {
 
@@ -69,9 +71,12 @@ public class ProductController {
     Parent root = loader.load();
     CashierController controller = loader.getController();
     controller.setKasir(kasir);
-    tableView.getScene().getWindow().setWidth(1280);
-    tableView.getScene().getWindow().setHeight(800);
-    tableView.getScene().setRoot(root);
+
+    Scene scene = tableView.getScene();
+    scene.setRoot(root);
+
+    Stage stage = (Stage) scene.getWindow();
+    stage.sizeToScene();
   }
 
   @FXML
@@ -80,9 +85,12 @@ public class ProductController {
     Parent root = loader.load();
     HistoryController controller = loader.getController();
     controller.setKasir(kasir);
-    tableView.getScene().getWindow().setWidth(1280);
-    tableView.getScene().getWindow().setHeight(800);
-    tableView.getScene().setRoot(root);
+
+    Scene scene = tableView.getScene();
+    scene.setRoot(root);
+
+    Stage stage = (Stage) scene.getWindow();
+    stage.sizeToScene();
   }
 
   public void setKasir(Kasir kasir) {

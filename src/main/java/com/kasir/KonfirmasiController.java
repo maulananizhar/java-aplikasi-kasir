@@ -4,15 +4,21 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Statement;
 
-import org.apache.pdfbox.pdmodel.PDDocument;
-
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
+import com.kasir.model.Kasir;
 import com.kasir.services.DBConnection;
 
 public class KonfirmasiController {
+
+  private Kasir kasir;
+
   @FXML
   private Label totalHargaLabel;
   @FXML
@@ -29,6 +35,10 @@ public class KonfirmasiController {
 
   public void setUuid(String uuid) {
     uuidLabel.setText(uuid);
+  }
+
+  public void setKasir(Kasir kasir) {
+    this.kasir = kasir;
   }
 
   // Method untuk close dialog konfirmasi
@@ -52,17 +62,17 @@ public class KonfirmasiController {
       // Update status transaksi menjadi "Selesai"
       String sql = "UPDATE transaksi SET status = 'Selesai' WHERE uuid = '" + uuid + "'";
       stmt.executeUpdate(sql);
-
-      // PDF
-      PDDocument document = new PDDocument();
-      document.save("D:\\" + uuid + ".pdf");
-      document.close();
-
     } catch (Exception e) {
       e.printStackTrace();
     }
 
     closeDialog();
-    App.setRoot("history");
+
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("history.fxml"));
+    Parent root = loader.load();
+    HistoryController controller = loader.getController();
+    controller.setKasir(kasir);
+
+    App.rootScene.setRoot(root);
   }
 }
